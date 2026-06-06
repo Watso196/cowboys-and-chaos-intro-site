@@ -55,6 +55,7 @@
   function updateBtn() {
     if (!btn) return;
     const off = !isPlaying || audio.muted;
+    btn.textContent = off ? '🔇' : '🔊';
     btn.classList.toggle('muted', off);
     btn.setAttribute('aria-label', off ? 'Enable background music' : 'Mute background music');
     btn.title = off ? 'Enable music' : 'Mute music';
@@ -63,12 +64,13 @@
   function createBtn() {
     btn = document.createElement('button');
     btn.id = 'music-toggle';
-    btn.innerHTML = '&#9834;';
-    btn.classList.add('muted');
     btn.setAttribute('aria-label', 'Enable background music');
     btn.title = 'Enable music';
     btn.addEventListener('click', toggleMute);
-    document.body.appendChild(btn);
+    const nav = document.querySelector('.site-nav');
+    if (nav) nav.appendChild(btn);
+    else document.body.appendChild(btn);
+    updateBtn();
   }
 
   // ── Music Modal ──────────────────────────────────────────────

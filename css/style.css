@@ -209,7 +209,6 @@ p:last-child { margin-bottom: 0; }
 .audio-player {
   display: flex;
   width: fit-content;
-  margin: 0 auto;
   align-items: center;
   gap: 0.75rem;
   background: var(--wood);
@@ -267,6 +266,11 @@ p:last-child { margin-bottom: 0; }
 }
 
 .audio-label { font-weight: 600; letter-spacing: 0.05em; }
+
+.page-hero .audio-player,
+.hero-content .audio-player {
+  margin: 0 auto;
+}
 
 /* ── Audio Attribution ─────────────────────────────────────── */
 .audio-player + p {

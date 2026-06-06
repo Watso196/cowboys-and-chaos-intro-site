@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const a = e.target.closest('a[href]');
     if (!a) return;
     const href = a.getAttribute('href');
-    if (!href || /^(https?:|\/\/|#|mailto:|tel:)/.test(href)) return;
+    if (!href || /^(#|mailto:|tel:)/.test(href)) return;
     if (a.hasAttribute('download') || a.target === '_blank') return;
     let target;
     try { target = new URL(a.href, window.location.href); } catch (e) { return; }

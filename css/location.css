@@ -108,3 +108,14 @@
 }
 
 .location-entry p { font-size: 0.92rem; margin: 0; }
+
+/* ── Dark Band (override factions.css conflict) ────────────── */
+.band {
+  background: var(--ink);
+  padding: 4.5rem 3rem;
+}
+
+.band-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}

@@ -130,7 +130,7 @@ a:hover { color: var(--gold); }
 
 /* ── Parchment Content Sections ────────────────────────────── */
 .parchment-section {
-  background: var(--parchment);
+  background: var(--parchment-dark);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   position: relative;
@@ -341,7 +341,7 @@ p:last-child { margin-bottom: 0; }
 
 /* ── Page Hero (for inner pages) ───────────────────────────── */
 .page-hero {
-  background: var(--shadow);
+  background: var(--ink);
   border-bottom: 3px solid var(--gold);
   margin-top: calc(-1 * var(--nav-height));
   padding: calc(var(--nav-height) + 5rem) 3rem 4.5rem;

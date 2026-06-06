@@ -90,7 +90,7 @@
 .era-btn {
   font-family: var(--font-body);
   font-size: 0.85rem;
-  background: var(--parchment-dark);
+  background: var(--parchment-deep);
   border: 1px solid var(--parchment-deep);
   color: var(--ink-light);
   padding: 0.35rem 0.85rem;

@@ -136,7 +136,7 @@
 
 /* ── Location Cards Section ─────────────────────────────── */
 .locations-section {
-  background: var(--parchment);
+  background: var(--parchment-dark);
   padding: 4rem 2rem;
 }
 

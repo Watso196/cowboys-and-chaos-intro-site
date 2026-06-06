@@ -11,7 +11,7 @@
 }
 
 .stat-item { display: flex; gap: 0.4rem; align-items: baseline; }
-.stat-label { font-style: italic; color: var(--dust); }
+.stat-label { font-style: italic; color: var(--wood); }
 .stat-value { font-weight: 600; color: var(--ink); }
 
 .npc-grid {

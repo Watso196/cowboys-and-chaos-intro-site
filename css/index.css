@@ -1,7 +1,7 @@
 /* ── Hero / Stars Section ───────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background: #080510;
   display: flex;
   flex-direction: column;

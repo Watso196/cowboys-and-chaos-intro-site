@@ -7,7 +7,7 @@
   const audio = new Audio();
   audio.src = pathPrefix + 'assets/ambience-music.mp3';
   audio.loop = true;
-  audio.volume = 1;
+  audio.volume = 0.3;
 
   let isPlaying = false;
   let duckTimer = null;
@@ -24,7 +24,7 @@
     if (!isPlaying) return;
     clearInterval(duckTimer);
     duckTimer = setInterval(() => {
-      if (audio.volume > 0.38) audio.volume = Math.max(0.38, audio.volume - 0.04);
+      if (audio.volume > 0.12) audio.volume = Math.max(0.12, audio.volume - 0.04);
       else clearInterval(duckTimer);
     }, 30);
   }
@@ -33,7 +33,7 @@
     if (!isPlaying) return;
     clearInterval(duckTimer);
     duckTimer = setInterval(() => {
-      if (audio.volume < 1) audio.volume = Math.min(1, audio.volume + 0.04);
+      if (audio.volume < 0.3) audio.volume = Math.min(0.3, audio.volume + 0.04);
       else clearInterval(duckTimer);
     }, 30);
   }
@@ -123,7 +123,23 @@
     const isIndex = path === '/' || path.endsWith('/') || path.endsWith('index.html');
 
     if (pref === 'on') {
-      start();
+      audio.muted = false;
+      audio.play().then(() => {
+        isPlaying = true;
+        updateBtn();
+      }).catch(() => {
+        // Autoplay blocked — resume on first user gesture
+        const onInteract = () => {
+          audio.play().then(() => {
+            isPlaying = true;
+            updateBtn();
+          }).catch(() => {});
+          document.removeEventListener('pointerdown', onInteract);
+          document.removeEventListener('keydown', onInteract);
+        };
+        document.addEventListener('pointerdown', onInteract);
+        document.addEventListener('keydown', onInteract);
+      });
       dispatchReady();
     } else if (pref === 'off') {
       updateBtn();

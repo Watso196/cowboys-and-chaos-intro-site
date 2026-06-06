@@ -5,7 +5,7 @@
   const pathPrefix = window.location.pathname.includes('/locations/') ? '../' : '';
 
   const audio = new Audio();
-  audio.src = pathPrefix + 'audio/background.mp3';
+  audio.src = pathPrefix + 'assets/ambience-music.mp3';
   audio.loop = true;
   audio.volume = 1;
 

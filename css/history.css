@@ -68,14 +68,14 @@
   margin: 2rem 0;
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--ink-light);
+  color: var(--ink);
   position: relative;
 }
 
 .quote-attribution {
   font-style: normal;
   font-size: 0.85rem;
-  color: var(--dust);
+  color: var(--ink-light);
   margin-top: 0.5rem;
   margin-bottom: 0;
 }

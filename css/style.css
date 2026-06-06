@@ -413,6 +413,10 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: 0.05em;
 }
 
+.site-footer p {
+  color: var(--dust);
+}
+
 /* ── Utility ───────────────────────────────────────────────── */
 .text-center { text-align: center; }
 .mt-1 { margin-top: 0.5rem; }

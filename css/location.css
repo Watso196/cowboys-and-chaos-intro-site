@@ -6,12 +6,20 @@
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--parchment-dark);
   text-decoration: none;
   margin-bottom: 1rem;
 }
 
+.page-hero .back-link {
+  color: var(--gold);
+}
+
 .back-link:hover { color: var(--gold); }
+
+.page-hero .back-link:hover {
+  color: var(--gold-light);
+  text-shadow: 0 0 10px rgba(201, 146, 42, 0.45);
+}
 
 /* ── District Grid ─────────────────────────────────────────── */
 .district-grid {

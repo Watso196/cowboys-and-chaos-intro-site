@@ -157,6 +157,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ── Absolutize Nav Links ─────────────────────────────────
+  // Convert relative hrefs to absolute so they survive pushState URL changes.
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.setAttribute('href', link.href);
+  });
+
   // ── Active Nav Link ──────────────────────────────────────
   updateActiveNavLink();
 

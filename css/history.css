@@ -62,7 +62,7 @@
 }
 
 .quote-block {
-  background: var(--parchment-dark);
+  background: var(--parchment);
   border-left: 4px solid var(--rust);
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;

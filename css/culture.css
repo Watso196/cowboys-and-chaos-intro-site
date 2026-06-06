@@ -1,0 +1,100 @@
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .two-col { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.culture-block {
+  margin-bottom: 3rem;
+}
+
+.culture-block:last-child { margin-bottom: 0; }
+
+.inline-heading {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--rust);
+  margin-bottom: 0.5rem;
+}
+
+/* Dark band between sections */
+.band {
+  background: var(--ink);
+  padding: 3.5rem 2rem;
+}
+
+.band-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.law-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.law-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,146,42,0.15);
+  border-left: 4px solid var(--rust);
+  padding: 1.25rem;
+}
+
+.law-card-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.law-card p {
+  color: var(--parchment-dark);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.god-entry {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--parchment-deep);
+}
+
+.god-entry:last-child { border-bottom: none; }
+
+.god-symbol {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  width: 2.5rem;
+  text-align: center;
+  padding-top: 0.1rem;
+}
+
+.god-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.god-status {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--dust);
+  margin-bottom: 0.25rem;
+}
+
+.god-desc {
+  font-size: 0.95rem;
+  margin: 0;
+}

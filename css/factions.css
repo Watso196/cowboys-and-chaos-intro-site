@@ -1,0 +1,113 @@
+.faction-section {
+  margin-bottom: 4rem;
+}
+
+.faction-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--parchment-deep);
+}
+
+.faction-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.faction-name {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.faction-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--dust);
+  font-size: 0.95rem;
+}
+
+.person-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.person-card {
+  background: var(--parchment-dark);
+  border: 2px solid var(--parchment-deep);
+  border-top: 4px solid var(--rust);
+  padding: 1.5rem;
+}
+
+.person-card.gold-top {
+  border-top-color: var(--gold);
+}
+
+.person-card.sage-top {
+  border-top-color: var(--sage);
+}
+
+.person-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.person-role {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.75rem;
+}
+
+.person-role.gold { color: var(--gold); }
+.person-role.sage { color: var(--sage); }
+
+.person-card p {
+  font-size: 0.95rem;
+}
+
+.tension-block {
+  background: var(--ink);
+  border: 1px solid rgba(201,146,42,0.2);
+  border-left: 4px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tension-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.tension-block p {
+  color: var(--parchment-dark);
+  font-size: 0.95rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.band {
+  background: var(--shadow);
+  padding: 0.5rem 0;
+}
+
+.separator {
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0;
+}

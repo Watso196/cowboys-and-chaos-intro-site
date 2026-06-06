@@ -37,21 +37,193 @@
 
     <header class="page-hero">
       <a href="../map.html" class="back-link" style="color:var(--dust);">← Back to Map</a>
+      <p class="hero-eyebrow" style="font-family:var(--font-body);font-style:italic;letter-spacing:0.15em;color:var(--dust);margin-bottom:0.5rem;">Northeastern Coast — Great Meadow</p>
       <h1 class="display-title">Copper City</h1>
-      <p class="subtitle">Seat of the Covayan Compact — The Largest Harbor on the Continent</p>
+      <p class="subtitle">Seat of the Covayan Compact. Largest city on the continent. The place where power lives — and where the money ultimately flows.</p>
       <button class="audio-player mt-2" data-src="../audio/copper-city.mp3" aria-label="Play Copper City narration" style="margin:0 auto;">
         <span class="play-icon" aria-hidden="true"></span>
         <span class="audio-label">Play Narration</span>
       </button>
     </header>
 
-    <section class="parchment-section" aria-labelledby="content-heading">
+    <section class="parchment-section" aria-labelledby="overview-heading">
       <div class="section-inner">
         <a href="../map.html" class="back-link">← Back to Map</a>
-        <h2 class="section-title" id="content-heading">Copper City</h2>
-        <p>Copper City began as a camp at the outlet of the great northern river — a place where fresh water, coastal access, and nearby copper deposits made settlement unusually viable. It grew quickly. The mines drew people. The harbor drew trade. By the end of the Pioneer Period it was the largest settlement on the continent, and it has remained so ever since. It is the seat of the Covayan Compact, home to the High Chancellor, the Chancellery Court, and the most consistent exercise of Covayan law anywhere on the continent. It also has the highest concentration of followers of Alithe — the cracked hourglass appears on politician lapels and merchant ledgers, worshipped by people who may not fully understand their god's precarious position, or may not care.</p>
+
+        <div class="location-stat-bar" role="list" aria-label="City statistics">
+          <div class="stat-item" role="listitem"><span class="stat-label">Population:</span><span class="stat-value">~40,000</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Economy:</span><span class="stat-value">Copper mining &amp; maritime trade</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Government:</span><span class="stat-value">High Chancellor Nigel Trosbury</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Tone:</span><span class="stat-value">Grand and grimy, ambitious and exhausted</span></div>
+        </div>
+
+        <h2 class="section-title" id="overview-heading">Overview</h2>
+        <p>Copper City is the largest settlement in Covaya by a considerable margin — forty thousand people in the city proper and its immediate surrounds. It is the seat of the Compact, home to the High Chancellor, and the place where the continent's money ultimately flows. Its harbor is the deepest on the coast. Its copper mines have been producing for generations and show no sign of exhaustion.</p>
+        <p>The Shadow Wars hit Copper City differently than the outlying territories. The city never fell — the harbor chains held, the walls held, the navy kept the worst incursions from the waterfront. What it lost was its hinterland. For nearly three decades Copper City was a wealthy fortress surrounded by a continent it could no longer govern. That experience left marks. The city's institutions are more intact than anywhere else in Covaya. They are also more inward-looking, more suspicious of the countryside, and considerably more accustomed to self-sufficiency than the Compact's founding documents anticipated.</p>
+        <p>At street level the city is a patchwork. Grand civic avenues give way to cramped neighborhoods three streets in any direction. The smell of the tanneries and smelting works drifts across the merchant quarter on a west wind. Forty thousand people means anonymity is possible — useful if you need to disappear, uncomfortable if you need help. The city runs on relationships, and a stranger with no history here exists in a particular social vacuum that is uncomfortable even when it is not dangerous.</p>
+
         <div class="divider"><span class="divider-icon">✦</span></div>
-        <p class="subtitle" style="margin-top:1rem;">More detail on this location will be added as the campaign develops.</p>
+
+        <h2 class="section-title">The Districts</h2>
+        <p>Copper City is too large and too old to be a single place. Six districts that grew into each other over two centuries, each with its own character and its own understanding of what the city is for.</p>
+
+        <div class="district-grid">
+          <div class="district-card gold" id="civic">
+            <div class="district-icon" aria-hidden="true">🏛️</div>
+            <div class="district-name">The Civic Quarter</div>
+            <div class="district-tag">Power &amp; Politics</div>
+            <p>Stone streets, pale granite facades, copper-green patina on ironwork. The Chancellery dominates. The city's wealthiest old families live in quiet townhouses nearby. Scandals here are conducted quietly. Power does not need to announce itself.</p>
+            <div class="sign-person">
+              <div class="sign-person-name">Magistrate Sera Oult</div>
+              <div class="sign-person-role">The Honest One</div>
+              <p>The only magistrate whose reputation for impartiality is uncomplicated. She will not break the law for the players. She will apply it accurately and without favor — which is rarer than it sounds and worth more than it appears.</p>
+            </div>
+          </div>
+          <div class="district-card" id="harbor">
+            <div class="district-icon" aria-hidden="true">⚓</div>
+            <div class="district-name">The Harbor District</div>
+            <div class="district-tag">Trade &amp; Informal Networks</div>
+            <p>Docks, cranes, warehouses, chandlers. Behind the waterfront: taverns, boarding houses, and establishments that don't advertise their nature. Operates on the tide and the manifest. Where strangers are least remarkable and arrangements can be made without witnesses.</p>
+            <div class="sign-person">
+              <div class="sign-person-name">Vera Cassant</div>
+              <div class="sign-person-role">Shipping Magnate</div>
+              <p>Sixty, lean, the largest single employer in the harbor district. Keeps meticulous records — not all of which match the Harbor Authority's manifests. The gap between the two sets of records is where a significant portion of Copper City's informal economy lives.</p>
+            </div>
+          </div>
+          <div class="district-card" id="works">
+            <div class="district-icon" aria-hidden="true">🔥</div>
+            <div class="district-name">The Copper Works</div>
+            <div class="district-tag">Industry &amp; Labor Tension</div>
+            <p>The smelting district sits upwind of most of the city. Furnaces run day and night — visible as a red glow on the ridge from the harbor. The mining families and the workers who run the operations have a relationship that is stable in the way things are stable just before they are not.</p>
+            <div class="sign-person">
+              <div class="sign-person-name">Aldric Hourn</div>
+              <div class="sign-person-role">Mining Patriarch</div>
+              <p>Large, loud, given to hospitality that functions as dominance. Does eliminate competitors rather than merely beat them, and maintains an intimate relationship with the magistrates who handle labor disputes. He considers the distinction between what he does and corruption to be meaningful.</p>
+            </div>
+          </div>
+          <div class="district-card" id="merchant">
+            <div class="district-icon" aria-hidden="true">⚖️</div>
+            <div class="district-name">The Merchant Quarter</div>
+            <div class="district-tag">Commerce &amp; Alithe's Shadow</div>
+            <p>Trading houses, banks, assayers, lawyers. The cracked hourglass of Alithe appears here more than anywhere else in the city — on lapels, signage, carved into doorframes. The merchants of Copper City are not people who examine the foundations of their beliefs too carefully.</p>
+          </div>
+          <div class="district-card gold" id="college">
+            <div class="district-icon" aria-hidden="true">🔬</div>
+            <div class="district-name">The College District</div>
+            <div class="district-tag">Scholarship &amp; Eccentricity</div>
+            <p>The Copper City College of Arcane and Natural Sciences occupies the eastern rise. From below it looks like respectable civic architecture. Up close it is something stranger: graduate students arguing planar theory in the street, experiments going occasionally and loudly wrong. The most cosmopolitan neighborhood in the city.</p>
+          </div>
+          <div class="district-card shadow" id="temple">
+            <div class="district-icon" aria-hidden="true">🕯️</div>
+            <div class="district-name">The Temple District</div>
+            <div class="district-tag">Faith in Disarray</div>
+            <p>The great temple of Alithe has not been used for regular services in a generation. New faiths have moved into smaller shrine spaces. In one larger vacant building, something meets on certain nights that attendees describe in terms that don't quite add up.</p>
+          </div>
+        </div>
+
+        <div class="district-card district-card--full mt-2" id="spans">
+          <div class="district-icon" aria-hidden="true">🌉</div>
+          <div class="district-name">The Spans</div>
+          <div class="district-tag">Residential — Where Most People Actually Live</div>
+          <p>Named for three wooden bridges crossing a tributary of the northern river. Dense, old, narrow streets and tall buildings. The cooking smells of a dozen culinary traditions on the same block. The Shadow Wars brought a significant population of displaced persons who never left. The Spans operates on its own institutions and its own laws. The city guard patrols the main roads. The side streets are governed by mutual understanding.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="locations-heading">
+      <div class="band-inner">
+        <h2 class="section-title light" id="locations-heading">Key Locations</h2>
+        <p style="color:var(--dust);font-style:italic;margin-top:0.25rem;">The specific places that matter. The city has hundreds more.</p>
+        <div class="location-entries">
+
+          <div class="location-entry gold">
+            <div class="location-icon" aria-hidden="true">🏛️</div>
+            <div>
+              <div class="location-name">The Chancellery</div>
+              <div class="location-district">Civic Quarter</div>
+              <p>Trosbury's seat. Public petitions on the ground floor, policy apparatus above, a basement that appears on no public document.</p>
+              <div class="sign-person">
+                <div class="sign-person-name">High Chancellor Nigel Trosbury</div>
+                <div class="sign-person-role">High Chancellor of Covaya</div>
+                <p>Twenty-three years in office. Plain-spoken, persistent, not naive. He knows the city has rot in it and has made strategic choices about what he addresses. His succession is the city's unspoken crisis. Whether the players can trust him is a more complicated question than whether he is trustworthy.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-entry">
+            <div class="location-icon" aria-hidden="true">📜</div>
+            <div>
+              <div class="location-name">The Copper City Archive</div>
+              <div class="location-district">Civic Quarter</div>
+              <p>The documentary record of Covayan history. A restricted collection requiring the head archivist's explicit permission.</p>
+              <div class="sign-person">
+                <div class="sign-person-name">Cornelia Voss</div>
+                <div class="sign-person-role">Head Archivist</div>
+                <p>Meticulous, protective of documents that have survived things she considers it her professional responsibility to prevent them surviving again. Getting her trust is a longer project than bribing or intimidating her — neither of which will work.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-entry gold">
+            <div class="location-icon" aria-hidden="true">🔬</div>
+            <div>
+              <div class="location-name">The College</div>
+              <div class="location-district">College District</div>
+              <p>Old stone, newer annexes, outdoor workspaces in controlled disorder.</p>
+              <div class="sign-person">
+                <div class="sign-person-name">Professor Wiley Snipes</div>
+                <div class="sign-person-role">Chair of Ruins &amp; Material History</div>
+                <p>Brilliant, disorganized, prone to accepting informal students when he finds them interesting. His research centers on the Before People and the Strange Mountains — topics the Chancellery finds uncomfortable. He funds his work through means he does not always disclose.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-entry">
+            <div class="location-icon" aria-hidden="true">🍺</div>
+            <div>
+              <div class="location-name">The Mended Net</div>
+              <div class="location-district">Harbor District</div>
+              <p>A tavern of middling quality and excellent location. The back room is theoretically for private dining.</p>
+              <div class="sign-person">
+                <div class="sign-person-name">Cutter</div>
+                <div class="sign-person-role">The Informal Economy</div>
+                <p>Nobody uses his real name. Thirty-five, slight, corner table. His prices are honest in the sense that he charges exactly what he says and delivers exactly what he promises — which makes him more reliable than most official institutions the players will encounter.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-entry">
+            <div class="location-icon" aria-hidden="true">🌉</div>
+            <div>
+              <div class="location-name">The Bridges Market</div>
+              <div class="location-district">The Spans</div>
+              <p>Every fifth day on the middle Span. Goods of unclear provenance, information that cannot be obtained officially. Exists in the gap between what trade law covers and what it doesn't.</p>
+            </div>
+          </div>
+
+          <div class="location-entry shadow">
+            <div class="location-icon" aria-hidden="true">⏳</div>
+            <div>
+              <div class="location-name">The Old Temple of Alithe</div>
+              <div class="location-district">Temple District</div>
+              <p>Its copper dome has gone fully green. Doors unlocked, interior dim and cold. The back rooms contain records nobody has fully catalogued in thirty years.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="parchment-section" aria-labelledby="arrival-heading">
+      <div class="section-inner">
+        <h2 class="section-title" id="arrival-heading">Arriving in Copper City</h2>
+        <p>The first thing travelers notice, arriving by sea, is the smell of copper — metallic and slightly sweet, stronger on warm days. Then the harbor: busy in a way that Spine Gulch is not and cannot be. The civic quarter, reached by the main road from the harbor gates, is the city presenting its best face. Stone. Lamp posts. People who dress better than anywhere else in Covaya and watch strangers more carefully.</p>
+        <p>The city runs on relationships — who vouches for you, who you owe, who owes you. A stranger with no voucher and no history exists in a social vacuum that is uncomfortable even when it is not dangerous. Finding a way out of that vacuum is the first practical challenge Copper City presents.</p>
+        <button class="audio-player mt-2" data-src="../audio/copper-city-arrival.mp3" aria-label="Play arrival narration">
+          <span class="play-icon" aria-hidden="true"></span>
+          <span class="audio-label">Play Arrival Narration</span>
+        </button>
       </div>
     </section>
 

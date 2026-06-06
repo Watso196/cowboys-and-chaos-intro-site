@@ -78,7 +78,7 @@
 }
 
 .tension-block {
-  background: var(--shadow);
+  background: var(--wood);
   border: 1px solid rgba(201,146,42,0.2);
   border-left: 4px solid var(--gold);
   padding: 1.25rem 1.5rem;

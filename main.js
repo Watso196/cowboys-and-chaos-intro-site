@@ -117,7 +117,10 @@ function navigate(url, pushState) {
       if (!newMain) return;
 
       resolveRelativePaths(newMain, target.href);
-      document.querySelector('main').innerHTML = newMain.innerHTML;
+      const currentMain = document.querySelector('main');
+      Array.from(currentMain.attributes).forEach(a => currentMain.removeAttribute(a.name));
+      Array.from(newMain.attributes).forEach(a => currentMain.setAttribute(a.name, a.value));
+      currentMain.innerHTML = newMain.innerHTML;
       document.title = doc.title;
 
       if (pushState) history.pushState(null, '', target.href);

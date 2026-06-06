@@ -1,0 +1,444 @@
+/* ============================================================
+   COVAYA CAMPAIGN SITE — SHARED STYLES
+   Cowboys & Chaos | A D&D Campaign
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --parchment:       #f2e8d0;
+  --parchment-dark:  #e0d0a8;
+  --parchment-deep:  #c8b882;
+  --ink:             #2a1f0e;
+  --ink-light:       #4a3520;
+  --rust:            #8b3a1a;
+  --rust-light:      #b34e22;
+  --gold:            #c9922a;
+  --gold-light:      #e8b84b;
+  --shadow:          #1a1008;
+  --wood:            #5c3d1e;
+  --wood-light:      #7a5230;
+  --sage:            #6b7c5a;
+  --dust:            #a89060;
+
+  --font-display:    'Rye', serif;
+  --font-heading:    'Playfair Display', serif;
+  --font-body:       'Crimson Text', serif;
+
+  --nav-height:      70px;
+  --max-width:       1100px;
+}
+
+/* ── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--ink);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--rust); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* ── Navigation ────────────────────────────────────────────── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--shadow);
+  border-bottom: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-brand:hover { color: var(--gold-light); }
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--parchment-dark);
+  padding: 0.4rem 0.75rem;
+  border-radius: 2px;
+  transition: color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  background: rgba(201, 146, 42, 0.1);
+}
+
+/* Hamburger for mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--parchment);
+  transition: transform 0.3s;
+}
+
+/* ── Page Wrapper ──────────────────────────────────────────── */
+.page-wrapper {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* ── Parchment Content Sections ────────────────────────────── */
+.parchment-section {
+  background: var(--parchment);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  position: relative;
+}
+
+.parchment-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(200,184,130,0.3) 0%, transparent 15%, transparent 85%, rgba(200,184,130,0.3) 100%);
+  pointer-events: none;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+.display-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--rust);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-shadow: 2px 2px 0 rgba(42,31,14,0.15);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-title.light {
+  color: var(--parchment);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink-light);
+  margin-bottom: 2rem;
+}
+
+p { margin-bottom: 1.2em; color: var(--ink-light); }
+p:last-child { margin-bottom: 0; }
+
+/* ── Decorative Dividers ───────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--parchment-deep));
+}
+.divider::after {
+  background: linear-gradient(to left, transparent, var(--parchment-deep));
+}
+.divider-icon {
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ── Audio Player ──────────────────────────────────────────── */
+.audio-player {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--wood);
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--parchment);
+  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-player::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.audio-player:hover {
+  background: var(--wood-light);
+  border-color: var(--gold-light);
+}
+
+.audio-player .play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--gold);
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.audio-player.playing .play-icon {
+  width: 12px;
+  height: 14px;
+  border: none;
+  background: var(--gold);
+  display: flex;
+  gap: 3px;
+  align-items: stretch;
+  padding: 1px 0;
+}
+
+.audio-player.playing .play-icon::before,
+.audio-player.playing .play-icon::after {
+  content: '';
+  flex: 1;
+  background: var(--wood);
+  border-radius: 1px;
+}
+
+.audio-label { font-weight: 600; letter-spacing: 0.05em; }
+
+/* ── Wooden Sign Cards ─────────────────────────────────────── */
+.wooden-sign {
+  background: var(--wood);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 40px,
+    rgba(0,0,0,0.03) 40px,
+    rgba(0,0,0,0.03) 41px
+  );
+  border: 3px solid var(--wood-light);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    4px 4px 0 rgba(0,0,0,0.4),
+    8px 8px 0 rgba(0,0,0,0.15);
+  padding: 1.5rem 2rem;
+  position: relative;
+}
+
+.wooden-sign::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.wooden-sign .sign-title {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.wooden-sign p {
+  color: var(--parchment-dark);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Card Grid ─────────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ── Page Hero (for inner pages) ───────────────────────────── */
+.page-hero {
+  background: var(--shadow);
+  border-bottom: 3px solid var(--gold);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(201,146,42,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero .display-title { color: var(--gold); }
+.page-hero .subtitle { color: var(--parchment-dark); }
+
+/* ── Wanted Poster Style (for faction/people cards) ────────── */
+.wanted-card {
+  background: var(--parchment);
+  border: 3px double var(--ink);
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.wanted-card .wanted-header {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--rust);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.wanted-card .wanted-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.wanted-card .wanted-portrait {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--parchment-dark);
+  margin: 0 auto 1rem;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--shadow);
+  border-top: 2px solid var(--gold);
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--dust);
+  letter-spacing: 0.05em;
+}
+
+/* ── Utility ───────────────────────────────────────────────── */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.mt-4 { margin-top: 3rem; }
+
+/* ── Accessibility ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+}
+.skip-link:focus { top: 0; }
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    background: var(--shadow);
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 2px solid var(--gold);
+    gap: 0.25rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.75rem 1rem; font-size: 1rem; }
+  .nav-toggle { display: flex; }
+  .section-inner { padding: 2.5rem 1.25rem; }
+}

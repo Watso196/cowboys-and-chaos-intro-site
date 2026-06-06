@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History — Covaya</title>
+  <meta name="description" content="The history of Covaya — from the first exiles through the Shadow Wars to the present day." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.6rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--rust), var(--ink));
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-entry::before {
+      content: '';
+      position: absolute;
+      left: -2.1rem;
+      top: 0.45rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--parchment);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-era {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-years {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      background: var(--parchment-deep);
+      color: var(--ink);
+      padding: 0.15rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .quote-block {
+      background: var(--parchment-dark);
+      border-left: 4px solid var(--rust);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink-light);
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: '"';
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      color: var(--rust);
+      opacity: 0.25;
+      position: absolute;
+      top: -0.5rem;
+      left: 0.75rem;
+      line-height: 1;
+    }
+
+    .quote-attribution {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--dust);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    .eras-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .era-btn {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      background: var(--parchment-dark);
+      border: 1px solid var(--parchment-deep);
+      color: var(--ink-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      font-style: italic;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .era-btn:hover {
+      background: var(--rust);
+      color: var(--parchment);
+      border-color: var(--rust);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="map.html">The Map</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <p class="hero-eyebrow" style="font-family:var(--font-body);font-style:italic;letter-spacing:0.15em;color:var(--dust);margin-bottom:1rem;">As compiled by the Copper City Archive, E.o.C. 264</p>
+      <h1 class="display-title">A History of Covaya</h1>
+      <p class="subtitle">What follows is the best accounting the Archive has been able to assemble. It is not complete. It was never meant to be.</p>
+      <button class="audio-player mt-2" data-src="audio/history.mp3" aria-label="Play history narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="history-heading">
+      <div class="section-inner">
+
+        <div class="quote-block">
+          Covayan history is, above all, a history of people arriving somewhere difficult and deciding to stay anyway.
+          <p class="quote-attribution">— Copper City Archive, introduction</p>
+        </div>
+
+        <h2 class="section-title" id="history-heading">The Chronicle</h2>
+        <p>The record is incomplete. The Shadow Wars destroyed what couldn't be carried. The people who know the deepest history don't write it down. What follows is assembled from text, inference, and the fragments that survived.</p>
+
+        <div class="timeline" role="list">
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Pre-Historical</div>
+            <h3 class="timeline-title">The Long Dark</h3>
+            <span class="timeline-years">Before recorded time</span>
+            <p>Something happened before any record exists. The Quint call it <em>the Time Without Sky</em> — the sky went wrong, the land went quiet, and what moved in that quiet were not the things that had moved before. Whether this was the same catastrophe that struck the Atolian region, or something separate entirely, is a question scholars cannot answer. The Quint haven't said. The Before People left no record of it at all.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Age of Ruin</div>
+            <h3 class="timeline-title">The Before People</h3>
+            <span class="timeline-years">Est. 2,000–4,000+ years ago</span>
+            <p>Before the Quint's recorded presence — or alongside its earliest roots — something else was here. Their ruins remain in the foothills near the Strange Mountains: worked stone and metal built in styles that predate any known tradition. They were not destroyed. They were <em>abandoned</em>. No record says why. The jungle grew over them, and centuries passed, and the settlers arrived and found structures they couldn't explain and mostly chose not to investigate. The ones near the mountains in particular have a reputation for making people uncomfortable in ways they struggle to articulate.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Age of Tribes</div>
+            <h3 class="timeline-title">The Quint</h3>
+            <span class="timeline-years">Est. 1,000–2,000 years ago</span>
+            <p>The Quint do not describe themselves as people who arrived. They are of the land — a distinction they hold seriously and outsiders have tended to read as metaphor. Their tradition was one of careful stewardship: learning the language of a place and speaking it back accurately. They tended rather than farmed. They knew the Before People's ruins. At some point their territory contracted — from wide occupation of the continent to concentration in the northern jungle — and they have never explained why to anyone outside their tradition.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Era of Settlement</div>
+            <h3 class="timeline-title">The First Exiles</h3>
+            <span class="timeline-years">~450–264 years ago</span>
+            <p>The settlers came from Mirth, through the only reliable route: the Mandlewurd Pass through the Strange Mountains. The crossing was not safe. Compasses failed. Distances misbehaved. Those who made it moved north — the southern reaches near the mountains were too strange, too hostile. They followed the coast and the river valleys, leaving small settlements as they went. Copper City began as a camp at the outlet of the great northern river. The mines drew people. The harbor drew trade. The question of governance became unavoidable.</p>
+            <p>Why they were exiled from Mirth is not clearly recorded. Mirth's documents say it. The settlers left no clear account of it themselves. The Quint, who encountered them early, made a considered decision to observe before acting — and what they saw in those first years shaped every relationship between settler and tribe that followed.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Era of the Compact</div>
+            <h3 class="timeline-title">The Compact Period</h3>
+            <span class="timeline-years">E.o.C. 1–212 (264–52 years ago)</span>
+            <p>The Covayan Compact was not born of idealism. It was born of exhaustion. The largest settlements along the northern coast agreed to shared governance centered on Copper City — which had a functional harbor, a trained navy, and enough surplus copper to make cooperation worthwhile. Regional governors held local authority. The High Chancellor in Copper City handled what crossed regional lines.</p>
+            <p>The dominant pressure of this period was the Ableis Conflict — a long, grinding naval war over the archipelago north of Covaya's coast. Neither side landed a decisive blow. It shaped Covaya's military culture profoundly, producing a professional navy and a deep institutional wariness of the sea. When the Shadow Wars began, the Ableis Conflict simply stopped. Both sides had larger problems.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Era of the Compact</div>
+            <h3 class="timeline-title">The Shadow Wars</h3>
+            <span class="timeline-years">E.o.C. 212–239 (52–25 years ago)</span>
+            <p>The Shadow Wars did not arrive like wars usually arrive — with declarations and advancing armies. They arrived the way a bad winter arrives: gradually, then all at once. When the Transcosmic Divide was broken, the thin places in Covaya — the Strange Mountains most of all — tore open. What came through did not have clean names. Shadow creatures. Things shaped wrong. Presences that arrived in dark places and did not leave.</p>
+            <p>The incursions built slowly. The south was affected first, which made the warning signs easy to dismiss — the south had always been strange. By the time creatures began moving north into settled territory, Covaya understood what it was facing. The response was to contract. Outlying settlements were abandoned. Interior governors held what they could and stopped reporting what they couldn't. Copper City sealed its harbor chains at night.</p>
+            <p>The wars ended not through victory but through a shift in the planes. The Shadowfell drifted back. The boundary closed slowly, unevenly. The creatures retreated or were destroyed. Nobody won. The rebuilding began.</p>
+            <p>The Quint split during the worst years of the Shadow Wars. The Wort stayed in the northern jungle. The Tex moved south and east into the desert. Neither tribe has offered outsiders a complete explanation of why.</p>
+          </article>
+
+          <article class="timeline-entry" role="listitem">
+            <div class="timeline-era">Present Day</div>
+            <h3 class="timeline-title">The Period of Re-emergence</h3>
+            <span class="timeline-years">E.o.C. 239–present (25 years ago to now)</span>
+            <p>The present era begins not with victory but with slow, uncertain quiet. Covaya emerged from the Shadow Wars diminished — outlying territories abandoned, governance fractured, population considerably smaller. The High Chancellor in Copper City has spent twenty-five years attempting to reassert authority over regional governors who spent nearly three decades operating without oversight and have largely come to prefer it.</p>
+            <p>Roads are being rebuilt. Rail lines are being extended. Trade through the Mandlewurd Pass with Mirth has resumed, though cautiously. The Ableis Isles, once Covaya's most persistent military adversary, have gone silent — no raids, no envoys, no explanation. Scholars disagree about whether this is a gift or a warning.</p>
+            <p>The stars remain gone. The southern reaches remain strange. The strangeness that was always there — in the mountains, in the ruins, in the river that flows out of places nobody maps correctly — it didn't resolve when the Shadow Wars ended. It got quiet. It is not the same thing.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

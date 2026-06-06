@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grand Mesa — Covaya</title>
+  <meta name="description" content="Grand Mesa: a location in Covaya." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .back-link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../history.html">History</a></li>
+      <li><a href="../map.html">The Map</a></li>
+      <li><a href="../culture.html">Culture</a></li>
+      <li><a href="../factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <a href="../map.html" class="back-link" style="color:var(--dust);">← Back to Map</a>
+      <h1 class="display-title">Grand Mesa</h1>
+      <p class="subtitle">Central West — Between Two Worlds</p>
+      <button class="audio-player mt-2" data-src="../audio/grand-mesa.mp3" aria-label="Play Grand Mesa narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="content-heading">
+      <div class="section-inner">
+        <a href="../map.html" class="back-link">← Back to Map</a>
+        <h2 class="section-title" id="content-heading">Grand Mesa</h2>
+        <p>The Grand Mesa is a vast elevated plateau in Covaya's central west — higher than the desert that surrounds it, lower than the mountains to either side, occupying a position between the Wort Woodlands and the Great Tex Desert that makes it something of a crossroads. Mesa Grand, the settlement at its edge, is one of the stranger places in a continent full of strange places — a town that sits at the edge of three different worlds simultaneously and has learned to do business with all of them. The mesa itself is unusual geologically, its edges dropping sharply to the desert below. In the thin places near the cliffsides, the Shadowfell pressed particularly close during the Shadow Wars. The town survived, but not unchanged.</p>
+        <div class="divider"><span class="divider-icon">✦</span></div>
+        <p class="subtitle" style="margin-top:1rem;">More detail on this location will be added as the campaign develops.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

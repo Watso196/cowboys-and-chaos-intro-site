@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Tex Tribe — Covaya</title>
+  <meta name="description" content="The Tex Tribe: a location in Covaya." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .back-link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../history.html">History</a></li>
+      <li><a href="../map.html">The Map</a></li>
+      <li><a href="../culture.html">Culture</a></li>
+      <li><a href="../factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <a href="../map.html" class="back-link" style="color:var(--dust);">← Back to Map</a>
+      <h1 class="display-title">The Tex Tribe</h1>
+      <p class="subtitle">The Great Tex Desert — Southern Reaches</p>
+      <button class="audio-player mt-2" data-src="../audio/tex-tribe.mp3" aria-label="Play The Tex Tribe narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="content-heading">
+      <div class="section-inner">
+        <a href="../map.html" class="back-link">← Back to Map</a>
+        <h2 class="section-title" id="content-heading">The Tex Tribe</h2>
+        <p>The Tex moved into desert territory during the Shadow Wars — into land the settlers had abandoned and left to the strangeness of the south. Where the Wort stayed in the jungle they had always occupied, the Tex moved toward the mountains, toward the strange places, toward the ruins of the Before People in the foothills. Their knowledge of the desert is unmatched. They know the water sources, the seasonal routes, the things that move in the desert at night that deserve respect. What drove them south during the Shadow Wars is one of the more carefully kept mysteries in Covaya. Outsiders who ask receive answers that don't quite answer the question. The Tex framed their departure not in terms of the wars but in terms that have not been translated clearly into common — and the Wort, who stayed behind, frame it in terms that suggest the split was about something larger than geography.</p>
+        <div class="divider"><span class="divider-icon">✦</span></div>
+        <p class="subtitle" style="margin-top:1rem;">More detail on this location will be added as the campaign develops.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

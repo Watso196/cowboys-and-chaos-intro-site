@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culture — Covaya</title>
+  <meta name="description" content="The culture, government, religion, and daily life of Covaya." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .culture-block {
+      margin-bottom: 3rem;
+    }
+
+    .culture-block:last-child { margin-bottom: 0; }
+
+    .inline-heading {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--rust);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Dark band between sections */
+    .band {
+      background: var(--ink);
+      padding: 3.5rem 2rem;
+    }
+
+    .band-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .law-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .law-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,146,42,0.15);
+      border-left: 4px solid var(--rust);
+      padding: 1.25rem;
+    }
+
+    .law-card-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .law-card p {
+      color: var(--parchment-dark);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .god-entry {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--parchment-deep);
+    }
+
+    .god-entry:last-child { border-bottom: none; }
+
+    .god-symbol {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 2.5rem;
+      text-align: center;
+      padding-top: 0.1rem;
+    }
+
+    .god-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .god-status {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--dust);
+      margin-bottom: 0.25rem;
+    }
+
+    .god-desc {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="map.html">The Map</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <h1 class="display-title">Culture &amp; Life in Covaya</h1>
+      <p class="subtitle">Government, faith, and what it means to live on the frontier.</p>
+      <button class="audio-player mt-2" data-src="audio/culture.mp3" aria-label="Play culture narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <!-- Government -->
+    <section class="parchment-section" aria-labelledby="govt-heading">
+      <div class="section-inner">
+        <h2 class="section-title" id="govt-heading">The Covayan Compact</h2>
+        <p class="subtitle">What the government says it is, and what it actually is, are two related but distinct things.</p>
+
+        <div class="two-col">
+          <div>
+            <div class="culture-block">
+              <h3 class="inline-heading">How It's Supposed to Work</h3>
+              <p>At the top sits the High Chancellor in Copper City, with authority over matters that cross regional lines — external relations, naval command, inter-regional trade, currency. Below sit regional governors, each handling local law, taxation, and militia in their own territory. The High Chancellor speaks for Covaya as a nation. The governors are largely left alone.</p>
+              <p>When the system works, it's elegant — flexible enough for a continent with wildly different regions, resilient enough that one region's failure doesn't collapse the whole.</p>
+            </div>
+            <div class="culture-block">
+              <h3 class="inline-heading">How It Actually Works</h3>
+              <p>The system functions on the assumption that Copper City holds enough economic and military leverage to make deference worthwhile. When that leverage is strong, the Compact works reasonably well. When it weakens, governors operate as independent rulers and the High Chancellor governs whatever Copper City can physically reach.</p>
+              <p>After nearly three decades of the Shadow Wars, that leverage is still being rebuilt. Some governors have returned to full cooperation. Some are negotiating. Some haven't responded at all.</p>
+            </div>
+          </div>
+          <div>
+            <div class="wooden-sign">
+              <p class="sign-title">The Honest Summary</p>
+              <p>The Compact works well enough when things are going well and poorly when they are not. This is a more honest description of most governments than their designers would prefer.</p>
+            </div>
+            <div class="wooden-sign mt-2">
+              <p class="sign-title">Justice Is Variable</p>
+              <p>There is no common legal standard across Covaya. What a person can expect from the law depends almost entirely on where they happen to be standing. What's legal in one town may be a hanging offense in the next.</p>
+            </div>
+            <div class="wooden-sign mt-2">
+              <p class="sign-title">No Extradition</p>
+              <p>There is no functioning extradition agreement between regions. A fugitive who crosses into a different governorship is practically safe unless the two governors have a cooperative relationship — and in the current climate, many do not.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Law on the Ground -->
+    <section class="band" aria-labelledby="law-heading">
+      <div class="band-inner">
+        <h2 class="section-title light" id="law-heading">Law on the Ground</h2>
+        <p style="color:var(--dust);font-style:italic;">For most Covayans, the law is whoever is wearing the badge in the town they're standing in.</p>
+
+        <div class="law-cards">
+          <div class="law-card">
+            <div class="law-card-title">Sheriffs &amp; Marshals</div>
+            <p>Local law enforcement is appointed at the governor's pleasure or emerged from necessity. Quality varies wildly. In frontier towns, the sheriff is often one tired man holding things together through reputation alone.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">Militias</div>
+            <p>Governors are expected to maintain a regional militia. Some do. Some let them lapse during the Shadow Wars and never rebuilt them. The Compact provides no mechanism to compel this.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">The Chancellery Court</div>
+            <p>The only consistent court in Covaya handles crimes that cross regional lines — smuggling, inter-regional fraud, treason. It is the most reliable and the most subject to political pressure.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">Capital Punishment</div>
+            <p>Requires a governor's explicit authorization in most regional codes. What constitutes a capital crime varies considerably from region to region. There is no Compact-wide criminal code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Religion -->
+    <section class="parchment-section" aria-labelledby="religion-heading">
+      <div class="section-inner">
+        <h2 class="section-title" id="religion-heading">The Gods, Such As They Are</h2>
+        <p>The gods of Covaya are not what they were. The God War, the breaking of the Transcosmic Divide, and the Shadow Wars have left the divine order fractured. Knowing a god's name and having that god answer are two different things.</p>
+        <div class="divider"><span class="divider-icon">✦</span></div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">⛈️</div>
+          <div>
+            <div class="god-name">Eia, the Stormcaller</div>
+            <div class="god-status">Old God — Diminished | Sky, Air, Storms</div>
+            <p class="god-desc">Still worshipped by sailors and farmers out of necessity rather than piety. Her worship is practical — the way you'd respect a dangerous neighbor. Whether she hears prayers anymore is a matter of genuine theological debate among her own priests.</p>
+          </div>
+        </div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">🌙</div>
+          <div>
+            <div class="god-name">Mahina, the Nightwarden</div>
+            <div class="god-status">Old God — Diminished | Moons, Cycles</div>
+            <p class="god-desc">Since the stars went out, the moons are among the only reliable lights in the night sky. Mahina's following has grown accordingly. Her altars are the most consistently tended in Covaya.</p>
+          </div>
+        </div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">☀️</div>
+          <div>
+            <div class="god-name">Asteri, the Sundowner</div>
+            <div class="god-status">Old God — Diminished, Expanding | Sun, Dust</div>
+            <p class="god-desc">One of the few old gods whose following has genuinely grown since the God War. The sun still rises. That's more than most gods can promise. Her Dust domain carries a quiet theology: everything ends, everything is ground down, and there is no shame in this. In a frontier full of failed ventures, that lands hard.</p>
+          </div>
+        </div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">⚖️</div>
+          <div>
+            <div class="god-name">Siofra, Lady Luck</div>
+            <div class="god-status">Worldly God — Minor | Luck, Balance</div>
+            <p class="god-desc">Present in Covaya but not prominent. Gamblers leave coins on windowsills. Midwives invoke her name. People who've survived something they probably shouldn't have sometimes build small shrines without quite knowing why.</p>
+          </div>
+        </div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">📖</div>
+          <div>
+            <div class="god-name">Alpinwell, the Wayfarer</div>
+            <div class="god-status">Worldly God — Minor | Journey, Trial</div>
+            <p class="god-desc">Nobody knows exactly how he became a god. He walked across Covaya for a cause, gathered people along the way, and something happened. Every one of his followers has a story that begins with him walking through a door uninvited. He is charming and persistent and has excellent instincts for what people need to hear.</p>
+          </div>
+        </div>
+
+        <div class="god-entry">
+          <div class="god-symbol" aria-hidden="true">⏳</div>
+          <div>
+            <div class="god-name">Alithe, the Unmasked</div>
+            <div class="god-status">Dormant — Cornered | Ambition, Legacy</div>
+            <p class="god-desc">Once the most widely worshipped god in the known world — the god of Truth, Honor, and Trust. It was a lie. When his long manipulation of gods and mortals came to light, the other gods turned on him. He still has followers in Copper City, particularly among the nobility and merchant class. They may not fully understand how precarious their god's position actually is.</p>
+          </div>
+        </div>
+
+        <div class="divider" style="margin-top:2rem;"><span class="divider-icon">✦</span></div>
+
+        <h3 class="inline-heading mt-2">The Way of the World</h3>
+        <p>The two native tribes of Covaya do not worship gods. This is not a gap in their spiritual life — it is a considered position. Their tradition is less a religion than a relationship: with the land, with its creatures, with the cycles of weather and season. Practitioners do not pray. They observe. They tend. They learn the particular language of the place they inhabit and speak it back accurately. It requires enormous skill and discipline to maintain.</p>
+      </div>
+    </section>
+
+    <!-- Daily Life -->
+    <section class="band" aria-labelledby="life-heading">
+      <div class="band-inner">
+        <h2 class="section-title light" id="life-heading">Daily Life on the Frontier</h2>
+        <div class="law-cards">
+          <div class="law-card">
+            <div class="law-card-title">The Frontier Character</div>
+            <p style="color:var(--parchment-dark);font-size:0.95rem;margin:0;">Covayans are stubborn, practical, and hospitable to strangers in the way of people who understand that the road is hard. They don't complain much because there isn't anyone to complain to. They extend help because that's what you do.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">Distrust of Authority</div>
+            <p style="color:var(--parchment-dark);font-size:0.95rem;margin:0;">Most frontier Covayans don't trust the Compact or the Chancellery in any articulate political way. It's simply the accumulated experience of people who called for help during the Shadow Wars and received very little of it.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">The Shadow Wars' Legacy</div>
+            <p style="color:var(--parchment-dark);font-size:0.95rem;margin:0;">People know whose parents and grandparents died to shadow creatures and what years those deaths happened in. They talk about it the way people talk about weather — not constantly, but readily, because it is the shared fact of their lives.</p>
+          </div>
+          <div class="law-card">
+            <div class="law-card-title">The Starless Sky</div>
+            <p style="color:var(--parchment-dark);font-size:0.95rem;margin:0;">No one alive has seen the stars. Religion, navigation, agriculture — all of it reorganized around the two moons fifty years ago. The moons are not a replacement. They are simply what's left.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

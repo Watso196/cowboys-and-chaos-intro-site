@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Covaya — Cowboys & Chaos</title>
+  <meta name="description" content="An introduction to Covaya, the frontier nation where Cowboys & Chaos takes place." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Hero / Stars Section ───────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: #080510;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2rem;
+    }
+
+    /* Star field canvas */
+    #star-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Ground horizon */
+    .hero-ground {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, #1a0e04 0%, #2a1a08 40%, transparent 100%);
+    }
+
+    /* Silhouetted mesa shapes */
+    .hero-mesas {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 30%;
+      pointer-events: none;
+    }
+
+    .hero-mesas svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Hero text */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 760px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease 2.5s forwards;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-style: italic;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-shadow:
+        0 0 60px rgba(201,146,42,0.4),
+        0 0 120px rgba(201,146,42,0.15),
+        3px 3px 0 rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: clamp(0.95rem, 2vw, 1.3rem);
+      font-style: italic;
+      color: var(--parchment-dark);
+      margin-bottom: 2.5rem;
+      opacity: 0.85;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--parchment);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .hero-tagline em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 0.75rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold-light);
+      color: var(--ink);
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.4);
+    }
+
+    .hero-cta:active {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+    }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 4s forwards;
+    }
+
+    .scroll-hint span {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+
+    .scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--dust);
+      border-bottom: 2px solid var(--dust);
+      transform: rotate(45deg);
+      animation: bounce 1.5s ease infinite;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ── About Section ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text .display-title {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── Quick Facts ─────────────────────────────────────────── */
+    .dark-section {
+      background: var(--shadow);
+      padding: 4rem 2rem;
+    }
+
+    .dark-section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .fact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-top: 3px solid var(--gold);
+      padding: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .fact-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .fact-label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .fact-value {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--parchment);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .fact-detail {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--dust);
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ── Nav Links Row ───────────────────────────────────────── */
+    .explore-section {
+      background: var(--parchment-dark);
+      padding: 3.5rem 2rem;
+    }
+
+    .explore-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .explore-card {
+      background: var(--wood);
+      border: 2px solid var(--wood-light);
+      border-radius: 4px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--parchment);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.35);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+      display: block;
+    }
+
+    .explore-card:hover {
+      background: var(--wood-light);
+      color: var(--gold-light);
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.35);
+    }
+
+    .explore-card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+    .explore-card-label {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="map.html">The Map</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Campaign introduction">
+      <canvas id="star-canvas" aria-hidden="true"></canvas>
+      <div class="hero-ground" aria-hidden="true"></div>
+
+      <!-- Mesa silhouettes -->
+      <div class="hero-mesas" aria-hidden="true">
+        <svg viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,300 L0,200 Q50,195 80,180 L120,180 Q150,180 160,160 L200,160 Q210,160 220,180 L280,180 L300,200 Q350,205 380,200 L400,220 L450,220 Q480,215 500,190 L550,180 Q570,178 580,160 L630,160 Q645,160 655,180 L720,180 L740,200 L760,200 L780,220 L850,220 Q880,215 910,195 L940,185 Q960,183 970,160 L1020,145 Q1040,143 1050,160 L1100,170 L1140,190 L1180,200 L1220,210 L1260,205 L1300,190 L1340,180 L1380,185 L1440,195 L1440,300 Z"
+            fill="#1a0e04"/>
+          <path d="M0,300 L0,240 L60,240 L80,225 L120,225 L140,240 L200,240 L230,220 Q260,215 280,230 L320,240 L380,240 L400,250 L440,235 L480,235 L500,250 L560,250 L580,235 L620,230 L660,245 L700,255 L740,250 L780,240 L820,235 L860,240 L900,250 L960,250 L1000,240 L1040,235 L1080,245 L1120,255 L1160,250 L1200,240 L1260,238 L1320,245 L1380,250 L1440,248 L1440,300 Z"
+            fill="#120a03"/>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">A Dungeons &amp; Dragons Campaign</p>
+        <h1 class="hero-title">Covaya</h1>
+        <p class="hero-subtitle">Cowboys &amp; Chaos</p>
+        <p class="hero-tagline">
+          The stars are gone.<br>
+          The gods have <em>abandoned us</em>.<br>
+          And something older than memory<br>is waking in the mountains.
+        </p>
+        <a href="history.html" class="hero-cta">Begin Your Journey</a>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ── About Covaya ──────────────────────────────────────── -->
+    <section class="parchment-section" aria-labelledby="about-heading">
+      <div class="section-inner about-grid">
+        <div class="about-text">
+          <h2 class="display-title" id="about-heading">Welcome to the Frontier</h2>
+          <div class="divider"><span class="divider-icon">✦</span></div>
+          <p>Covaya is a nation built by exiles on the far edge of the known world. They crossed the Strange Mountains through the Mandlewurd Pass and decided — against all good sense — to stay. That stubbornness is the defining quality of the Covayan character.</p>
+          <p>It has been twenty-five years since the Shadow Wars ended. The land is healing, slowly. The outlying settlements are being rebuilt. The High Chancellor in Copper City is working to stitch the nation back together. And in the small frontier towns along the desert river routes, people are just trying to live.</p>
+          <p>But something is wrong. The strangeness in the south — in the mountains, in the desert, in the old ruins nobody talks about — it never fully went away. It's getting worse.</p>
+          <button class="audio-player mt-2" data-src="audio/welcome.mp3" aria-label="Play welcome narration">
+            <span class="play-icon" aria-hidden="true"></span>
+            <span class="audio-label">Play Narration</span>
+          </button>
+        </div>
+
+        <div>
+          <div class="wooden-sign">
+            <p class="sign-title">The State of Things</p>
+            <p>The Shadow Wars ended a generation ago, but they left scars. Towns abandoned. Records destroyed. Governance fractured. The people who survived them are still rebuilding — and still, quietly, afraid of the dark.</p>
+          </div>
+          <div class="wooden-sign mt-2">
+            <p class="sign-title">The Stars Are Gone</p>
+            <p>Fifty years ago the stars simply stopped. No explanation that satisfied. The two moons remain — Nui and Mikro — and they are now the only lights in the night sky. Navigation, farming, faith — all of it has reorganized around their cycles.</p>
+          </div>
+          <div class="wooden-sign mt-2">
+            <p class="sign-title">The Gods, Such As They Are</p>
+            <p>The old gods are diminished, absent, or exposed as liars. New ones have risen — smaller, stranger, more present. And in the unstable south, something that has no name yet is filling the vacuum they left.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Quick Facts ────────────────────────────────────────── -->
+    <section class="dark-section" aria-labelledby="facts-heading">
+      <div class="dark-section-inner">
+        <h2 class="section-title light text-center" id="facts-heading">What You Need to Know</h2>
+        <p class="text-center" style="color:var(--dust); font-style:italic; margin-top:0.5rem;">Five things. Everything else is details.</p>
+
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon" aria-hidden="true">🏜️</div>
+            <div class="fact-label">The Land</div>
+            <div class="fact-value">Frontier Nation</div>
+            <p class="fact-detail">Desert, jungle, mountain, and coast — a continent too big and too strange to fully govern.</p>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon" aria-hidden="true">⚖️</div>
+            <div class="fact-label">The Law</div>
+            <div class="fact-value">Thin and Variable</div>
+            <p class="fact-detail">What's legal in one town may hang you in the next. The High Chancellor's reach doesn't extend everywhere.</p>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon" aria-hidden="true">🌑</div>
+            <div class="fact-label">The Sky</div>
+            <div class="fact-value">Stars Gone. Moons Remain.</div>
+            <p class="fact-detail">Fifty years of starless nights. Two moons navigate by. The gods have no good explanation.</p>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon" aria-hidden="true">🏹</div>
+            <div class="fact-label">The Tribes</div>
+            <div class="fact-value">Wort &amp; Tex</div>
+            <p class="fact-detail">The original people of Covaya. Split during the Shadow Wars for reasons they haven't shared with outsiders.</p>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon" aria-hidden="true">⛰️</div>
+            <div class="fact-label">The Mountains</div>
+            <div class="fact-value">Genuinely Strange</div>
+            <p class="fact-detail">Compasses fail. Distances misbehave. Whatever made the Strange Mountains strange did it long before anyone arrived to notice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Explore ────────────────────────────────────────────── -->
+    <section class="explore-section" aria-labelledby="explore-heading">
+      <div class="explore-inner">
+        <h2 class="section-title" id="explore-heading">Explore Covaya</h2>
+        <p class="subtitle">Choose your path, stranger.</p>
+
+        <nav class="explore-grid" aria-label="Site sections">
+          <a href="history.html" class="explore-card">
+            <div class="explore-card-icon" aria-hidden="true">📜</div>
+            <div class="explore-card-label">History</div>
+          </a>
+          <a href="map.html" class="explore-card">
+            <div class="explore-card-icon" aria-hidden="true">🗺️</div>
+            <div class="explore-card-label">The Map</div>
+          </a>
+          <a href="culture.html" class="explore-card">
+            <div class="explore-card-icon" aria-hidden="true">🏛️</div>
+            <div class="explore-card-label">Culture</div>
+          </a>
+          <a href="factions.html" class="explore-card">
+            <div class="explore-card-icon" aria-hidden="true">🤠</div>
+            <div class="explore-card-label">Factions</div>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* ── Star Animation ─────────────────────────────────────── */
+    const canvas = document.getElementById('star-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    let animFrame;
+    let goingOut = false;
+    let goingOutTimer = null;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    function randomStar() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * 0.7,
+        r: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.5 + 0.5,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+        twinkleDir: Math.random() > 0.5 ? 1 : -1,
+        dying: false,
+        fadeSpeed: 0,
+      };
+    }
+
+    function initStars(count = 280) {
+      stars = Array.from({ length: count }, randomStar);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Night sky gradient
+      const sky = ctx.createLinearGradient(0, 0, 0, canvas.height * 0.7);
+      sky.addColorStop(0, '#02000a');
+      sky.addColorStop(0.6, '#08051a');
+      sky.addColorStop(1, '#130a04');
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(s => {
+        if (s.dying) {
+          s.alpha -= s.fadeSpeed;
+          if (s.alpha < 0) s.alpha = 0;
+        } else {
+          // Twinkle
+          s.alpha += s.twinkleSpeed * s.twinkleDir;
+          if (s.alpha > 1) { s.alpha = 1; s.twinkleDir = -1; }
+          if (s.alpha < 0.2) { s.alpha = 0.2; s.twinkleDir = 1; }
+        }
+
+        if (s.alpha <= 0) return;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 248, 220, ${s.alpha})`;
+        ctx.fill();
+
+        // Soft glow on larger stars
+        if (s.r > 1.2) {
+          const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4);
+          grd.addColorStop(0, `rgba(255,248,200,${s.alpha * 0.3})`);
+          grd.addColorStop(1, 'rgba(255,248,200,0)');
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r * 4, 0, Math.PI * 2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+        }
+      });
+
+      animFrame = requestAnimationFrame(draw);
+    }
+
+    function killStars() {
+      // Stagger each star dying over ~4 seconds
+      stars.forEach((s, i) => {
+        setTimeout(() => {
+          s.dying = true;
+          s.fadeSpeed = Math.random() * 0.015 + 0.008;
+        }, Math.random() * 4000);
+      });
+    }
+
+    // Start the animation
+    resize();
+    initStars();
+    draw();
+
+    // Stars go out after 3s on the page
+    goingOutTimer = setTimeout(() => {
+      goingOut = true;
+      killStars();
+    }, 3000);
+
+    window.addEventListener('resize', () => {
+      resize();
+      if (!goingOut) initStars();
+    });
+  </script>
+</body>
+</html>

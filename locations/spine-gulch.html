@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spine Gulch — Covaya</title>
+  <meta name="description" content="Spine Gulch: a frontier trade town on the Snake River, where the campaign begins." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .location-stat-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 2rem;
+      background: rgba(42,31,14,0.08);
+      border: 1px solid var(--parchment-deep);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+    }
+
+    .stat-item { display: flex; gap: 0.4rem; align-items: baseline; }
+    .stat-label { font-style: italic; color: var(--dust); }
+    .stat-value { font-weight: 600; color: var(--ink); }
+
+    .npc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .npc-card {
+      background: var(--parchment-dark);
+      border: 2px solid var(--parchment-deep);
+      border-top: 4px solid var(--rust);
+      padding: 1.5rem;
+    }
+
+    .npc-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.15rem;
+    }
+
+    .npc-role {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.75rem;
+    }
+
+    .npc-card p { font-size: 0.95rem; }
+
+    .rules-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      border: 2px solid var(--parchment-deep);
+    }
+
+    .rules-list li {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--parchment-deep);
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 1.05rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    .rules-list li:last-child { border-bottom: none; }
+    .rules-list li::before { content: '—'; color: var(--rust); flex-shrink: 0; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+
+    .back-link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../history.html">History</a></li>
+      <li><a href="../map.html">The Map</a></li>
+      <li><a href="../culture.html">Culture</a></li>
+      <li><a href="../factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <a href="../map.html" class="back-link" style="color:var(--dust);">← Back to Map</a>
+      <p class="hero-eyebrow" style="font-family:var(--font-body);font-style:italic;letter-spacing:0.15em;color:var(--dust);margin-bottom:0.5rem;">A Settlement on the Snake River</p>
+      <h1 class="display-title">Spine Gulch</h1>
+      <p class="subtitle">Where the Mountains Meet the Desert — and Where the Campaign Begins</p>
+      <button class="audio-player mt-2" data-src="../audio/spine-gulch.mp3" aria-label="Play Spine Gulch narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="overview-heading">
+      <div class="section-inner">
+
+        <a href="../map.html" class="back-link">← Back to Map</a>
+
+        <div class="location-stat-bar" role="list" aria-label="Location statistics">
+          <div class="stat-item" role="listitem"><span class="stat-label">Population:</span><span class="stat-value">~100</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Function:</span><span class="stat-value">River trade stop</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Government:</span><span class="stat-value">Sheriff-Governor (one aging man)</span></div>
+          <div class="stat-item" role="listitem"><span class="stat-label">Tone:</span><span class="stat-value">Dusty, tired, honest, slightly haunted</span></div>
+        </div>
+
+        <h2 class="section-title" id="overview-heading">Overview</h2>
+        <p>Spine Gulch is the kind of town that exists because someone had to stop somewhere. It sits on the eastern bank of the Snake River just far enough north of the Strange Mountains to be habitable — which is a lower bar than it sounds. The mountains press heat and strangeness into the air even at this distance, and in the deep summer the Snake River shrinks to a brown trickle between cracked mud banks, and the town bakes.</p>
+        <p>The town barely survived the Shadow Wars. Several of its buildings did not, and nobody has torn down the empty ones or rebuilt them. They stand where they always stood, windows dark, doors hanging, slowly being reclaimed by the dust. The people of Spine Gulch know whose parents and grandparents died to shadow creatures and what years those deaths happened in. They talk about it the way people talk about weather — not constantly, but readily, because it is the shared fact of their lives.</p>
+        <p>The town has no consistent armed force. The sheriff is getting old. The bandito problem along this stretch of desert is getting worse. Everyone in Spine Gulch is aware of both of these facts and most of them are managing a low-grade dread about what happens when the two facts meet properly.</p>
+
+        <div class="divider"><span class="divider-icon">✦</span></div>
+
+        <h2 class="section-title">The Snake River</h2>
+        <p>The Snake runs out of the Strange Mountains to the south, which explains both why Spine Gulch exists and why the river has always had a slightly unsettled reputation. The water runs colder than it should given the climate. Its color is an odd greenish-brown that locals attribute to mountain minerals and try not to think about too much.</p>
+        <p>The people of Spine Gulch drink from the Snake. They always have. There is no other reliable water source close enough to matter, and the river has never made anyone visibly sick. What it has done, over generations, is subtler than sickness. People born and raised here carry a particular awareness that outsiders tend to notice and can rarely name — they know when something is coming down the river before it arrives, in the way you know a sound has changed before you can identify how.</p>
+        <p>Something lives in the Snake. The town knows this the way it knows other foundational things — not through argument but through long accumulated experience. It is not worshipped or feared. It is simply present.</p>
+
+        <h3 class="inline-heading mt-2" style="font-family:var(--font-heading);font-size:1.1rem;color:var(--rust);margin-bottom:0.75rem;">The Rules of the River</h3>
+        <p>Outsiders who ask are told these plainly, without ceremony. Whether travelers choose to follow them is their own business. The river does not make exceptions.</p>
+        <ul class="rules-list" aria-label="Rules of the Snake River">
+          <li>Do not fish anything out of the Snake that you did not put in.</li>
+          <li>When something comes down the current that does not belong there, do not look at it directly. Let it pass.</li>
+          <li>Do not go into the water after dark.</li>
+          <li>If the river goes quiet — no current sound, no birds, nothing — go inside and wait.</li>
+        </ul>
+
+        <div class="divider"><span class="divider-icon">✦</span></div>
+
+        <h2 class="section-title">Key Locations</h2>
+
+        <div class="wooden-sign mt-2">
+          <p class="sign-title">The Ramshackle</p>
+          <p>Spine Gulch's only bar — which means it is also its community hall, courthouse, rumor exchange, and primary form of entertainment. Dim even in daylight, smelling of woodsmoke and spilled liquor. The furniture is mismatched and heavily used. The bar itself is the nicest thing in the building, a long slab of dark wood that Billy keeps cleaner than anything else in town. <strong>This is where the campaign begins.</strong></p>
+        </div>
+
+        <div class="wooden-sign mt-2">
+          <p class="sign-title">The Sheriff's Office</p>
+          <p>One room. One cell, currently empty. A desk, a gun rack with two rifles and a gap where a third used to be, a wanted board with three notices. The office also handles tax collection, land claims, and anything else requiring an official stamp — all from the same battered desk.</p>
+        </div>
+
+        <div class="wooden-sign mt-2">
+          <p class="sign-title">The Trading Post</p>
+          <p>The most functional building in Spine Gulch. A covered loading dock faces the river path; a front counter faces the main road. Handles the exchange of goods between river barges and town, buys and sells supplies for travelers, and serves as an informal bank — the owner keeps a locked strongbox behind the counter and will hold money for people she trusts.</p>
+        </div>
+
+        <div class="divider"><span class="divider-icon">✦</span></div>
+
+        <h2 class="section-title">The People</h2>
+        <div class="npc-grid">
+          <div class="npc-card">
+            <div class="npc-name">Billy Worst</div>
+            <div class="npc-role">Proprietor — The Ramshackle</div>
+            <p>Broad, weathered, sour. His disposition is simply his face. He dislikes everyone at roughly the same baseline level, which, once understood, is almost comforting. He remembers what people drink, cuts off drunks before they become problems, and keeps a bat behind the bar. He has used it. If Billy spits in your drink, the town has collectively decided you are not welcome.</p>
+          </div>
+          <div class="npc-card">
+            <div class="npc-name">Sheriff Aldous Crane</div>
+            <div class="npc-role">Sheriff-Governor</div>
+            <p>Twenty-two years as sheriff. Was capable once. He still knows the law, the land, and every person in town by name. What he is not, anymore, is fast. The bandits discovered this two years ago and have been testing the limits of it since. He is not corrupt. He is an old man who is tired and grieving and outpaced — his wife Maren died three years ago — which is in some ways harder to fix than corruption would be.</p>
+          </div>
+          <div class="npc-card">
+            <div class="npc-name">Dura Paths</div>
+            <div class="npc-role">Owner — The Trading Post</div>
+            <p>Organized, plainspoken, with an accurate mental ledger of who owes what to whom in Spine Gulch. Not warm exactly — but fair, which in a town this size is more valuable. She and Billy Worst have a long-running disagreement about a debt that predates most current residents' memory and shows no sign of resolution.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Map — Covaya</title>
+  <meta name="description" content="An interactive map of Covaya. Click a location to learn more." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .map-page-hero {
+      background: var(--shadow);
+      border-bottom: 3px solid var(--gold);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    /* ── Map Container ──────────────────────────────────────── */
+    .map-container {
+      background: var(--ink);
+      padding: 2rem 1rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .map-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 3px solid var(--gold);
+      box-shadow:
+        0 0 0 6px var(--shadow),
+        0 0 0 9px var(--gold),
+        0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* ── Location Pins ──────────────────────────────────────── */
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.15s;
+    }
+
+    .map-pin:hover,
+    .map-pin:focus {
+      transform: translate(-50%, -100%) scale(1.2);
+      outline: none;
+      z-index: 20;
+    }
+
+    .map-pin:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .pin-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+    }
+
+    .pin-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--shadow);
+      box-shadow: 0 0 8px rgba(201,146,42,0.8);
+    }
+
+    .pin-dot.danger { background: var(--rust); box-shadow: 0 0 8px rgba(139,58,26,0.8); }
+    .pin-dot.tribe  { background: var(--sage);  box-shadow: 0 0 8px rgba(107,124,90,0.8); }
+
+    .pin-stem {
+      width: 2px;
+      height: 10px;
+      background: var(--gold);
+      opacity: 0.8;
+    }
+
+    .pin-stem.danger { background: var(--rust); }
+    .pin-stem.tribe  { background: var(--sage); }
+
+    .pin-label {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(8,5,16,0.92);
+      border: 1px solid var(--gold);
+      color: var(--parchment);
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+
+    .map-pin:hover .pin-label,
+    .map-pin:focus .pin-label {
+      opacity: 1;
+    }
+
+    /* ── Map Legend ─────────────────────────────────────────── */
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--parchment-dark);
+      font-style: italic;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Location Cards Section ─────────────────────────────── */
+    .locations-section {
+      background: var(--parchment);
+      padding: 4rem 2rem;
+    }
+
+    .locations-grid {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .location-card {
+      background: var(--parchment-dark);
+      border: 2px solid var(--parchment-deep);
+      border-top: 4px solid var(--rust);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+      transition: transform 0.15s, box-shadow 0.15s, border-top-color 0.2s;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    }
+
+    .location-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.15);
+      border-top-color: var(--gold);
+      color: var(--ink);
+    }
+
+    .location-card.tribe-card { border-top-color: var(--sage); }
+    .location-card.tribe-card:hover { border-top-color: #8aad6a; }
+
+    .location-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+    .location-card-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--ink);
+    }
+
+    .location-card-type {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 0.6rem;
+    }
+
+    .location-card p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .location-card .visit-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    .location-card:hover .visit-link { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="map.html">The Map</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="map-page-hero">
+      <h1 class="display-title" style="color:var(--gold);">The Map of Covaya</h1>
+      <p class="subtitle" style="color:var(--parchment-dark);">Click a pin to explore a location. Hover to see its name.</p>
+    </header>
+
+    <!-- Interactive Map -->
+    <section class="map-container" aria-label="Interactive map of Covaya">
+      <div class="map-wrapper" id="map-wrapper">
+        <img
+          src="map.webp"
+          alt="Map of Covaya showing regions including the Wort Woodlands, Great Tex Desert, Strange Mountains, and major settlements"
+          class="map-image"
+          id="map-img"
+          draggable="false"
+        />
+
+        <!-- Pins are positioned as % of image dimensions -->
+        <!-- These coordinates are tuned to the covaya-map.webp image -->
+
+        <a href="locations/copper-city.html" class="map-pin" style="left:87%; top:30%;" aria-label="Copper City — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Copper City</span>
+            <div class="pin-dot"></div>
+            <div class="pin-stem"></div>
+          </div>
+        </a>
+
+        <a href="locations/spine-gulch.html" class="map-pin" style="left:49%; top:80%;" aria-label="Spine Gulch — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Spine Gulch</span>
+            <div class="pin-dot danger"></div>
+            <div class="pin-stem danger"></div>
+          </div>
+        </a>
+
+        <a href="locations/wort-tribe.html" class="map-pin" style="left:18%; top:44%;" aria-label="Wort Tribe — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Wort Tribe</span>
+            <div class="pin-dot tribe"></div>
+            <div class="pin-stem tribe"></div>
+          </div>
+        </a>
+
+        <a href="locations/tex-tribe.html" class="map-pin" style="left:50%; top:65%;" aria-label="Tex Tribe — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Tex Tribe</span>
+            <div class="pin-dot tribe"></div>
+            <div class="pin-stem tribe"></div>
+          </div>
+        </a>
+
+        <a href="locations/strange-mountains.html" class="map-pin" style="left:38%; top:90%;" aria-label="The Strange Mountains — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Strange Mountains</span>
+            <div class="pin-dot danger"></div>
+            <div class="pin-stem danger"></div>
+          </div>
+        </a>
+
+        <a href="locations/grand-mesa.html" class="map-pin" style="left:26%; top:60%;" aria-label="Grand Mesa — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">Grand Mesa</span>
+            <div class="pin-dot"></div>
+            <div class="pin-stem"></div>
+          </div>
+        </a>
+
+        <a href="locations/the-spines.html" class="map-pin" style="left:63%; top:18%;" aria-label="The Spines — Visit location page">
+          <div class="pin-marker">
+            <span class="pin-label">The Spines</span>
+            <div class="pin-dot"></div>
+            <div class="pin-stem"></div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Legend -->
+      <div class="map-legend" role="list" aria-label="Map legend">
+        <div class="legend-item" role="listitem">
+          <div class="legend-dot" style="background:var(--gold);"></div>
+          Settlement / Region
+        </div>
+        <div class="legend-item" role="listitem">
+          <div class="legend-dot" style="background:var(--sage);"></div>
+          Tribal Territory
+        </div>
+        <div class="legend-item" role="listitem">
+          <div class="legend-dot" style="background:var(--rust);"></div>
+          Dangerous / Strange
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Cards -->
+    <section class="locations-section" aria-labelledby="locations-heading">
+      <div style="max-width:var(--max-width); margin:0 auto;">
+        <h2 class="section-title" id="locations-heading">Explore the Locations</h2>
+        <p class="subtitle">Every place in Covaya has a story. Most of them are complicated.</p>
+      </div>
+
+      <div class="locations-grid">
+
+        <a href="locations/copper-city.html" class="location-card">
+          <div class="location-card-icon" aria-hidden="true">🏙️</div>
+          <div class="location-card-name">Copper City</div>
+          <div class="location-card-type">Capital — Northeastern Coast</div>
+          <p>The seat of the Covayan Compact. The largest harbor on the continent. The place where power lives, where deals are made, and where the High Chancellor has been trying to stitch a nation back together for twenty-five years.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/spine-gulch.html" class="location-card">
+          <div class="location-card-icon" aria-hidden="true">🌵</div>
+          <div class="location-card-name">Spine Gulch</div>
+          <div class="location-card-type">Frontier Town — Snake River</div>
+          <p>Where the campaign begins. A hundred people, one tired sheriff, one bar, one trading post, and a river that runs strange from the mountains. The bandito problem is getting worse. Everyone knows it.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/wort-tribe.html" class="location-card tribe-card">
+          <div class="location-card-icon" aria-hidden="true">🌿</div>
+          <div class="location-card-name">The Wort Tribe</div>
+          <div class="location-card-type">Tribal Territory — Northern Jungle</div>
+          <p>The Wort have occupied the northern jungle longer than settler records reach. The jungle is their boundary and the settlers learned early not to push through it. Their knowledge of the forest is unmatched.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/tex-tribe.html" class="location-card tribe-card">
+          <div class="location-card-icon" aria-hidden="true">🏜️</div>
+          <div class="location-card-name">The Tex Tribe</div>
+          <div class="location-card-type">Tribal Territory — Great Tex Desert</div>
+          <p>The Tex moved into desert territory during the Shadow Wars — into land the settlers abandoned. They know the desert the way the Wort know the jungle. What drove them south is one of Covaya's more carefully kept mysteries.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/strange-mountains.html" class="location-card">
+          <div class="location-card-icon" aria-hidden="true">⛰️</div>
+          <div class="location-card-name">The Strange Mountains</div>
+          <div class="location-card-type">Dangerous Region — Southern Border</div>
+          <p>Compasses fail. Distances misbehave. Whatever makes these mountains strange made them that way long before the Shadow Wars. The Before People's ruins cluster in the foothills. The Snake River flows out of here and carries something with it.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/grand-mesa.html" class="location-card">
+          <div class="location-card-icon" aria-hidden="true">🗻</div>
+          <div class="location-card-name">Grand Mesa</div>
+          <div class="location-card-type">Region — Central West</div>
+          <p>A vast elevated plateau between the Wort Woodlands and the Great Tex Desert. Mesa Grand sits at its edge — a settlement that occupies a position between the two worlds of this continent and has learned to navigate both.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+        <a href="locations/the-spines.html" class="location-card">
+          <div class="location-card-icon" aria-hidden="true">🏔️</div>
+          <div class="location-card-name">The Spines</div>
+          <div class="location-card-type">Region — Northern Mountains</div>
+          <p>A jagged mountain range defining Covaya's northern interior. Ata Tazan sits in its foothills — a settlement with unusual access to the high passes and a reputation for people who prefer altitude to neighbors.</p>
+          <span class="visit-link" aria-hidden="true">Explore →</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

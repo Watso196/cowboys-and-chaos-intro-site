@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factions — Covaya</title>
+  <meta name="description" content="The factions, tribes, and key figures of Covaya." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faction-section {
+      margin-bottom: 4rem;
+    }
+
+    .faction-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--parchment-deep);
+    }
+
+    .faction-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .faction-name {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .faction-tagline {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--dust);
+      font-size: 0.95rem;
+    }
+
+    .person-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .person-card {
+      background: var(--parchment-dark);
+      border: 2px solid var(--parchment-deep);
+      border-top: 4px solid var(--rust);
+      padding: 1.5rem;
+    }
+
+    .person-card.gold-top {
+      border-top-color: var(--gold);
+    }
+
+    .person-card.sage-top {
+      border-top-color: var(--sage);
+    }
+
+    .person-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .person-role {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.75rem;
+    }
+
+    .person-role.gold { color: var(--gold); }
+    .person-role.sage { color: var(--sage); }
+
+    .person-card p {
+      font-size: 0.95rem;
+    }
+
+    .tension-block {
+      background: var(--ink);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-left: 4px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .tension-label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .tension-block p {
+      color: var(--parchment-dark);
+      font-size: 0.95rem;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .band {
+      background: var(--shadow);
+      padding: 0.5rem 0;
+    }
+
+    .separator {
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="map.html">The Map</a></li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <h1 class="display-title">Factions &amp; People</h1>
+      <p class="subtitle">The powers, the tribes, and the individuals that shape life in Covaya.</p>
+      <button class="audio-player mt-2" data-src="audio/factions.mp3" aria-label="Play factions narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="factions-heading">
+      <div class="section-inner">
+        <h2 class="section-title sr-only" id="factions-heading">Factions of Covaya</h2>
+
+        <!-- The Chancellery -->
+        <div class="faction-section">
+          <div class="faction-header">
+            <div class="faction-icon" aria-hidden="true">🏛️</div>
+            <div>
+              <div class="faction-name">The Covayan Compact</div>
+              <div class="faction-tagline">The government of Covaya — in theory and in practice, two different documents.</div>
+            </div>
+          </div>
+          <p>The Compact is Covaya's founding document and its live political situation. The High Chancellor in Copper City holds national authority. Regional governors hold local authority. Twenty-five years after the Shadow Wars, the question of who actually defers to whom is still being negotiated, region by region.</p>
+
+          <div class="person-grid">
+            <div class="person-card gold-top">
+              <div class="person-name">High Chancellor Nigel Trosbury</div>
+              <div class="person-role gold">High Chancellor of Covaya</div>
+              <p>Appointed in E.o.C. 241 in a fractured election where half the governor council didn't participate. He knew from the moment of appointment that the harder work was not governing Covaya but reassembling it. He is stout in disposition and body — plain-spoken, direct, capable of tact but not of vagueness. He does not abandon positions because they become difficult. He does not reframe failures as something else. In the immediate aftermath of the Shadow Wars, these qualities were exactly what the surviving governors were looking for. Whether they've been enough is a matter of perspective.</p>
+            </div>
+          </div>
+
+          <div class="tension-block">
+            <div class="tension-label">Current Tension</div>
+            <p>Some governors have never been brought back into meaningful compliance with the Compact. Trosbury has not yet found the lever that moves them — and his succession is an unresolved problem that political observers in Copper City discuss with increasing frequency.</p>
+          </div>
+        </div>
+
+        <div class="separator" aria-hidden="true"></div>
+
+        <!-- The Tribes -->
+        <div class="faction-section mt-4">
+          <div class="faction-header">
+            <div class="faction-icon" aria-hidden="true">🏹</div>
+            <div>
+              <div class="faction-name">The Quint — Wort &amp; Tex</div>
+              <div class="faction-tagline">The original people of Covaya. Split during the Shadow Wars for reasons they haven't shared.</div>
+            </div>
+          </div>
+          <p>The Quint have been in Covaya longer than anyone else can document. Their own tradition does not specify a point of arrival — they do not describe themselves as people who came to the land. The distinction between arriving somewhere and being of it is one they hold seriously.</p>
+          <p>Their spiritual tradition requires no gods. It is less a religion than a relationship — with the land, its creatures, the seasons, the two moons. They observe. They tend. They learn the particular language of a place and speak it back accurately. The knowledge lives in practice, not in text.</p>
+          <p>During the Shadow Wars, the Quint split. The <strong>Wort</strong> stayed in the northern jungle. The <strong>Tex</strong> moved south and east into the desert — into territory settlers had abandoned. Neither tribe has offered outsiders a complete explanation of why.</p>
+
+          <div class="person-grid">
+            <div class="person-card sage-top">
+              <div class="person-name">The Wort Tribe</div>
+              <div class="person-role sage">Northern Jungle — Wort Woodlands</div>
+              <p>The Wort remained in the jungle they have occupied for longer than settler records reach. Their relationship with the Compact is one of mutual non-interference — the jungle is their boundary and the settlers learned early not to push through it. Their knowledge of the northern forest is unmatched.</p>
+            </div>
+            <div class="person-card sage-top">
+              <div class="person-name">The Tex Tribe</div>
+              <div class="person-role sage">Great Tex Desert</div>
+              <p>The Tex moved into desert territory during the Shadow Wars — into land the settlers had abandoned and left to the strangeness of the south. They know the desert the way the Wort know the jungle. What drove them south is one of the more carefully kept mysteries in Covaya, and outsiders who ask tend to receive answers that don't quite answer the question.</p>
+            </div>
+          </div>
+
+          <div class="tension-block">
+            <div class="tension-label">The Split</div>
+            <p>Outsiders know the split happened. Neither tribe has offered a complete explanation of why. The Tex and Wort share a root tradition — but what each believes the other got wrong during the Shadow Wars is not yet known to anyone outside the tribes.</p>
+          </div>
+        </div>
+
+        <div class="separator" aria-hidden="true"></div>
+
+        <!-- Law and Order -->
+        <div class="faction-section mt-4">
+          <div class="faction-header">
+            <div class="faction-icon" aria-hidden="true">⭐</div>
+            <div>
+              <div class="faction-name">Law &amp; Order (Frontier Edition)</div>
+              <div class="faction-tagline">In Spine Gulch, the law is one aging man. This is not unusual.</div>
+            </div>
+          </div>
+          <p>Law on the frontier is a personal matter. There is no consistent standard, no independent judiciary, no extradition. The quality of justice in any given place is entirely dependent on the person wearing the badge — and on whether anyone has bothered to give them backup.</p>
+
+          <div class="person-grid">
+            <div class="person-card">
+              <div class="person-name">Sheriff Aldous Crane</div>
+              <div class="person-role">Sheriff-Governor — Spine Gulch</div>
+              <p>Twenty-two years as sheriff. Was capable once — people who have been in town long enough remember it, with a mixture of fondness and sadness. He still knows the law, the land, and every person in Spine Gulch by name. What he is not, anymore, is fast. The bandits discovered this two years ago and have been testing the limits of it since. He knows they know. He is not corrupt. He is not bought. He is an old man who is tired and grieving and outpaced, which is in some ways harder to fix than corruption would be.</p>
+            </div>
+          </div>
+
+          <div class="tension-block">
+            <div class="tension-label">The Bandito Problem</div>
+            <p>A gang is operating in the desert around Spine Gulch. A year ago the robberies got deliberate — scouts, coordinated timing, a pattern that suggests someone is running it with intention. The town suspects the third visit will be bolder. They are not wrong.</p>
+          </div>
+        </div>
+
+        <div class="separator" aria-hidden="true"></div>
+
+        <!-- Spine Gulch People -->
+        <div class="faction-section mt-4">
+          <div class="faction-header">
+            <div class="faction-icon" aria-hidden="true">🍺</div>
+            <div>
+              <div class="faction-name">The People of Spine Gulch</div>
+              <div class="faction-tagline">Where the campaign begins. About a hundred people. All of them have opinions.</div>
+            </div>
+          </div>
+
+          <div class="person-grid">
+            <div class="person-card">
+              <div class="person-name">Billy Worst</div>
+              <div class="person-role">Proprietor — The Ramshackle</div>
+              <p>Broad, weathered, sour. His disposition is simply his face — new arrivals mistake it for personal dislike. He dislikes everyone at roughly the same baseline, which, once understood, is almost comforting. He remembers what people drink, cuts off drunks before they become problems, and has an instinct for when a card game is about to go wrong. He keeps a bat behind the bar. He has used it. If Billy spits in your drink, the town has collectively decided you are not welcome.</p>
+            </div>
+            <div class="person-card">
+              <div class="person-name">Dura Paths</div>
+              <div class="person-role">Owner — The Trading Post</div>
+              <p>Organized, plainspoken, with an accurate mental ledger of who owes what to whom in Spine Gulch. Not warm exactly — but fair, which in a town this size is more valuable. She keeps a locked strongbox behind the counter and will hold money for people she trusts. She and Billy Worst have a long-running disagreement about a debt that predates most current residents' memory and shows no sign of resolution.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

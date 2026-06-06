@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wort Tribe — Covaya</title>
+  <meta name="description" content="The Wort Tribe: a location in Covaya." />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--parchment-dark);
+      text-decoration: none;
+      margin-bottom: 1rem;
+    }
+    .back-link:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-brand">Covaya</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../history.html">History</a></li>
+      <li><a href="../map.html">The Map</a></li>
+      <li><a href="../culture.html">Culture</a></li>
+      <li><a href="../factions.html">Factions</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-wrapper">
+
+    <header class="page-hero">
+      <a href="../map.html" class="back-link" style="color:var(--dust);">← Back to Map</a>
+      <h1 class="display-title">The Wort Tribe</h1>
+      <p class="subtitle">The Northern Jungle — Wort Woodlands</p>
+      <button class="audio-player mt-2" data-src="../audio/wort-tribe.mp3" aria-label="Play The Wort Tribe narration" style="margin:0 auto;">
+        <span class="play-icon" aria-hidden="true"></span>
+        <span class="audio-label">Play Narration</span>
+      </button>
+    </header>
+
+    <section class="parchment-section" aria-labelledby="content-heading">
+      <div class="section-inner">
+        <a href="../map.html" class="back-link">← Back to Map</a>
+        <h2 class="section-title" id="content-heading">The Wort Tribe</h2>
+        <p>The Wort have occupied the northern jungle longer than settler records reach. Their spiritual tradition requires no gods — it is less a religion than a relationship with the land, its creatures, the seasons. They observe. They tend. They learn the particular language of the jungle and speak it back accurately. The jungle is their boundary, and the settlers learned early not to push through it. Repeated chancellors who attempted to push north found themselves outmaneuvered not in pitched battles but through the attrition of fighting people who knew every trail, water source, and seasonal danger in a landscape the settlers were still learning. The Wort split from the Tex during the Shadow Wars for reasons they have not shared with outsiders. What they believed the Tex got wrong — and what they believe about the strangeness that has always pressed in from the south — remains carefully kept.</p>
+        <div class="divider"><span class="divider-icon">✦</span></div>
+        <p class="subtitle" style="margin-top:1rem;">More detail on this location will be added as the campaign develops.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Cowboys &amp; Chaos &nbsp;|&nbsp; A Covaya Campaign &nbsp;|&nbsp; <em>The stars are gone. The frontier remains.</em></p>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

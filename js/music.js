@@ -24,7 +24,7 @@
     if (!isPlaying) return;
     clearInterval(duckTimer);
     duckTimer = setInterval(() => {
-      if (audio.volume > 0.12) audio.volume = Math.max(0.9, audio.volume - 0.04);
+      if (audio.volume > 0.05) audio.volume = Math.max(0.05, audio.volume - 0.04);
       else clearInterval(duckTimer);
     }, 30);
   }
